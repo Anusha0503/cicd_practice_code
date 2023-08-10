@@ -32,7 +32,7 @@ node {
           def dockerRun = "docker run -d -p $PORT:8000 $REPOSITORY/$IMAGE_NAME:$BUILD_NUMBER"
           sh " docker login -u $USER_NAME -p $PASSWORD  "
           sshagent(['webserver_cicd']) {
-            sh" ssh -o StrictHostKeyChecking=no ubuntu@3.84.162.113 ${dockerRun} "
+            sh" ssh -o StrictHostKeyChecking=no ubuntu@54.173.167.157 ${dockerRun} "
             }
       }
 } 
