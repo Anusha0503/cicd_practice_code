@@ -31,7 +31,7 @@ node {
 
       stage ('deploy'){
           def dockerRun = "docker run -d -p $PORT:8000 $REPOSITORY/$IMAGE_NAME:$BUILD_NUMBER"
-          sshagent(['webserver1id']) {
+          sshagent(['webserver_cicd']) {
 
             sh" ssh -o StrictHostKeyChecking=no ubuntu@3.84.162.113 ${dockerRun} "
             }
